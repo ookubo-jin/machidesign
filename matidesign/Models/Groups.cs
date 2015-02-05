@@ -2,19 +2,15 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
-using System.Data.Entity;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 
 namespace matidesign.Models
 {
-    /// <summary>
-    /// Jichitaiを表すクラス・コントロール
-    /// </summary>
-    public class Jichitai
+    public class Groups
     {
-        [DisplayName("自治体ID")]
-        public int JichitaiId { get; set; }
+        [DisplayName("グループID")]
+        public int GroupsId { get; set; }
 
         [Required()]
         [StringLength(6)]
@@ -22,9 +18,9 @@ namespace matidesign.Models
         public string JichitaiCode { get; set; }
 
         [Required()]
-        [StringLength(80)]
-        [DisplayName("自治体名")]
-        public string JichitaiName { get; set; }
+        [StringLength(400)]
+        [DisplayName("グループ名")]
+        public string GroupsName { get; set; }
 
         [Required()]
         [StringLength(1)]
@@ -39,6 +35,10 @@ namespace matidesign.Models
         [DisplayName("更新日時")]
         public DateTime UpdDate { get; set; }
 
-    }
+        [Required()]
+        [StringLength(8)]
+        [DisplayName("開催日（開始）")]
+        public string KaisaiDate_Start { get; set; }
 
+    }
 }
