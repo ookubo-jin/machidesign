@@ -8,13 +8,17 @@ using System.ComponentModel.DataAnnotations;
 namespace matidesign.Models
 {
     /// <summary>
-    /// グループを表すクラス・コントロール
+    /// 申し込みを表すクラス・コントロール（検討中）
     /// </summary>
-    public class Groups
+    public class Apply
     {
         [Key]
-        [DisplayName("グループID")]
-        public int GroupId { get; set; }
+        [DisplayName("イベントID")]
+        public int EventsId { get; set; }
+        
+        [Key]
+        [DisplayName("申し込みID")]
+        public int ApplyId { get; set; }
 
         [Required()]
         [DisplayName("作成日時")]
@@ -32,13 +36,21 @@ namespace matidesign.Models
         [Required()]
         [StringLength(6)]
         [DisplayName("自治体コード")]
-        public string JichitaiId { get; set; }
+        public string JichitaiCode { get; set; }
 
         [Required()]
-        [StringLength(400)]
-        [DisplayName("グループ名")]
-        public string GroupName { get; set; }
+        [StringLength(100)]
+        [DisplayName("アカウントID")]
+        public string AccountId { get; set; }
 
+        [Required()]
+        [DisplayName("申込日時")]
+        public DateTime ApplyDate { get; set; }
 
+        [Required()]
+        [DisplayName("キャンセル日時")]
+        public DateTime CancellDate { get; set; }
+    
+    
     }
 }
