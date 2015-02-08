@@ -9,49 +9,84 @@
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.JichitaiId)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.InsDate)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.UpdDate)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.YukoFlg)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.JichitaiName)
-        </th>
-        <th></th>
-    </tr>
+<table class="table" id="myTable">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.JichitaiId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.InsDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.UpdDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.YukoFlg)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.JichitaiName)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.JichitaiId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.InsDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.UpdDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.YukoFlg)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.JichitaiName)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.JichitaiId }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.JichitaiId }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.JichitaiId })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.JichitaiId)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.InsDate)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.UpdDate)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.YukoFlg)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.JichitaiName)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.JichitaiId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.JichitaiId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.JichitaiId })
-        </td>
-    </tr>
+@section Scripts {
+    @Styles.Render("~/Content/datatables")
+    @Scripts.Render("~/bundles/datatables")
+<script>
+$(document).ready(function(){
+    $('#myTable').DataTable({
+        "oLanguage": {
+            "sProcessing": "処理中...",
+            "sLengthMenu": "_MENU_ 件表示",
+            "sZeroRecords": "データはありません。",
+            "sInfo": "_START_件～_END_件を表示（全_TOTAL_ 件中）",
+            "sInfoEmpty": " 0 件中 0 から 0 まで表示",
+            "sInfoFiltered": "（全 _MAX_ 件より抽出）",
+            "sInfoPostFix": "",
+            "sSearch": "検索フィルター:",
+            "sUrl": "",
+            "oPaginate": {
+                "sFirst": "先頭",
+                "sPrevious": "前ページ",
+                "sNext": "次ページ",
+                "sLast": "最終"
+            }
+        }
+    });
+});
+</script>
 }
 
-</table>
+
+
+

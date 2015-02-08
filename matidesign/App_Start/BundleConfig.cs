@@ -14,6 +14,12 @@ namespace matidesign
             bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
                         "~/Scripts/jquery.validate*"));
 
+            bundles.Add(new ScriptBundle("~/bundles/datatables").Include(
+                        "~/Scripts/DataTables/js/jquery.dataTables.min.js"));
+
+            bundles.Add(new StyleBundle("~/Content/datatables").Include(
+                        "~/Scripts/DataTables/css/jquery.dataTables.min.css"));
+
             // 開発と学習には、Modernizr の開発バージョンを使用します。次に、実稼働の準備が
             // できたら、http://modernizr.com にあるビルド ツールを使用して、必要なテストのみを選択します。
             bundles.Add(new ScriptBundle("~/bundles/modernizr").Include(

@@ -1,0 +1,90 @@
+﻿@model matidesign.Models.Groups
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Groups</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.InsDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.InsDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UpdDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UpdDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.YukoFlg)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.YukoFlg)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.JichitaiId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.JichitaiId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GroupName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GroupName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.HomePege)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HomePege)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ImageUrl)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ImageUrl)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GroupDescription)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GroupDescription)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.GroupId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

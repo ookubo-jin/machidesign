@@ -1,0 +1,81 @@
+﻿@model IEnumerable<matidesign.Models.Groups>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.InsDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.UpdDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.YukoFlg)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.JichitaiId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.GroupName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Email)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.HomePege)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ImageUrl)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.GroupDescription)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.InsDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.UpdDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.YukoFlg)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.JichitaiId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.GroupName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Email)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.HomePege)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ImageUrl)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.GroupDescription)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.GroupId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.GroupId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.GroupId })
+        </td>
+    </tr>
+}
+
+</table>

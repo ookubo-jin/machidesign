@@ -161,6 +161,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\GroupsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\JichitaiController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
@@ -189,7 +190,26 @@
     <Content Include="Content\Site.css" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\DataTables\images\Sorting icons.psd" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\DataTables\css\jquery.dataTables.css" />
+    <Content Include="Scripts\DataTables\css\jquery.dataTables.min.css" />
+    <Content Include="Scripts\DataTables\css\jquery.dataTables_themeroller.css" />
+    <Content Include="Scripts\DataTables\images\back_disabled.png" />
+    <Content Include="Scripts\DataTables\images\back_enabled.png" />
+    <Content Include="Scripts\DataTables\images\back_enabled_hover.png" />
+    <Content Include="Scripts\DataTables\images\favicon.ico" />
+    <Content Include="Scripts\DataTables\images\forward_disabled.png" />
+    <Content Include="Scripts\DataTables\images\forward_enabled.png" />
+    <Content Include="Scripts\DataTables\images\forward_enabled_hover.png" />
+    <Content Include="Scripts\DataTables\images\sort_asc.png" />
+    <Content Include="Scripts\DataTables\images\sort_asc_disabled.png" />
+    <Content Include="Scripts\DataTables\images\sort_both.png" />
+    <Content Include="Scripts\DataTables\images\sort_desc.png" />
+    <Content Include="Scripts\DataTables\images\sort_desc_disabled.png" />
+    <Content Include="Scripts\DataTables\js\jquery.dataTables.js" />
+    <Content Include="Scripts\DataTables\js\jquery.dataTables.min.js" />
+    <Content Include="Scripts\DataTables\js\jquery.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
@@ -241,6 +261,11 @@
     <Content Include="Views\Jichitai\Details.cshtml" />
     <Content Include="Views\Jichitai\Edit.cshtml" />
     <Content Include="Views\Jichitai\Index.cshtml" />
+    <Content Include="Views\Groups\Create.cshtml" />
+    <Content Include="Views\Groups\Delete.cshtml" />
+    <Content Include="Views\Groups\Details.cshtml" />
+    <Content Include="Views\Groups\Edit.cshtml" />
+    <Content Include="Views\Groups\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

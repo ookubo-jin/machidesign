@@ -22,21 +22,23 @@ namespace matidesign.Models
 
         [Required()]
         [DisplayName("作成日時")]
+        [DisplayFormat(DataFormatString = "{0:yyyy/MM/dd HH:mm:ss}")]
         public DateTime InsDate { get; set; }
 
         [Required()]
         [DisplayName("更新日時")]
+        [DisplayFormat(DataFormatString = "{0:yyyy/MM/dd HH:mm:ss}")]
         public DateTime UpdDate { get; set; }
 
         [Required()]
         [StringLength(1)]
         [DisplayName("有効フラグ")]
+        [Range(0, 1, ErrorMessage = "{0}は{1}～{2}の間で入力してください。")]
         public string YukoFlg { get; set; }
 
-        [Required()]
         [StringLength(6)]
         [DisplayName("自治体コード")]
-        public string JichitaiCode { get; set; }
+        public string JichitaiId { get; set; }
 
         [Required()]
         [StringLength(100)]
