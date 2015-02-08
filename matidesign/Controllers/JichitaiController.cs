@@ -97,6 +97,10 @@ namespace matidesign.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "JichitaiId,InsDate,UpdDate,YukoFlg,JichitaiName")] Jichitai jichitai)
         {
+
+            //更新日時セット
+            jichitai.UpdDate = DateTime.Now;
+
             if (ModelState.IsValid)
             {
                 db.Entry(jichitai).State = EntityState.Modified;
