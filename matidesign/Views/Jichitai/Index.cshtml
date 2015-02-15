@@ -44,7 +44,10 @@
                     @Html.DisplayFor(modelItem => item.UpdDate)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.YukoFlg)
+                    @if (item.YukoFlg == "0")
+                    { <text>無効</text> }
+                    else
+                    { <text>有効</text> }
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.JichitaiName)

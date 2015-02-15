@@ -4,78 +4,120 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<h2>グループ一覧</h2>
 
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.InsDate)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.UpdDate)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.YukoFlg)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.JichitaiId)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.GroupName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Email)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.HomePege)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ImageUrl)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.GroupDescription)
-        </th>
-        <th></th>
-    </tr>
+<table class="table" id="myTable">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.GroupId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.InsDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.UpdDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.YukoFlg)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.JichitaiId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.GroupName)
+            </th>
+            @*<th>
+                @Html.DisplayNameFor(model => model.Email)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.HomePege)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ImageUrl)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.GroupDescription)
+            </th>*@
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.InsDate)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.UpdDate)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.YukoFlg)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.JichitaiId)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.GroupName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Email)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.HomePege)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ImageUrl)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.GroupDescription)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.GroupId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.GroupId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.GroupId })
-        </td>
-    </tr>
-}
-
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.GroupId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.InsDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.UpdDate)
+                </td>
+                <td>
+                    @if (item.YukoFlg == "0")
+                    { <text>無効</text> }
+                    else
+                    { <text>有効</text> }
+                </td>
+                <td>
+                    @*@Html.DisplayFor(modelItem => item.JichitaiId)*@
+                    @Html.DisplayFor(modelItem => item.Jichitai.JichitaiName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.GroupName)
+                </td>
+                @*<td>
+                    @Html.DisplayFor(modelItem => item.Email)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.HomePege)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ImageUrl)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.GroupDescription)
+                </td>*@
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.GroupId }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.GroupId }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.GroupId })
+                </td>
+            </tr>
+        }
+    </tbody>
 </table>
+
+@section Scripts {
+    @Styles.Render("~/Content/datatables")
+    @Scripts.Render("~/bundles/datatables")
+    <script>
+$(document).ready(function(){
+    $('#myTable').DataTable({
+        "oLanguage": {
+            "sProcessing": "処理中...",
+            "sLengthMenu": "_MENU_ 件表示",
+            "sZeroRecords": "データはありません。",
+            "sInfo": "_START_件～_END_件を表示（全_TOTAL_ 件中）",
+            "sInfoEmpty": " 0 件中 0 から 0 まで表示",
+            "sInfoFiltered": "（全 _MAX_ 件より抽出）",
+            "sInfoPostFix": "",
+            "sSearch": "検索フィルター:",
+            "sUrl": "",
+            "oPaginate": {
+                "sFirst": "先頭",
+                "sPrevious": "前ページ",
+                "sNext": "次ページ",
+                "sLast": "最終"
+            }
+        }
+    });
+});
+    </script>
+}

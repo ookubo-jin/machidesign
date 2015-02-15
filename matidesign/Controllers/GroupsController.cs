@@ -38,6 +38,22 @@ namespace matidesign.Controllers
         // GET: Groups/Create
         public ActionResult Create()
         {
+            //LINQで並び替えて取得
+            var rows = db.jichitai.ToList()
+                .OrderBy(r => r.JichitaiId);
+
+            //ドロップダウンリストの配列を定義
+            List<SelectListItem> selItem= new List<SelectListItem>();
+
+            //取得したデータを配列に格納
+            foreach (var r in rows)
+            {
+                selItem.Add(new SelectListItem() { Value = r.JichitaiId, Text = r.JichitaiId + " " + r.JichitaiName });
+            }
+
+            //Viewへ値を渡す
+            ViewBag.SelectOptions = selItem;
+
             return View();
         }
 
@@ -48,6 +64,18 @@ namespace matidesign.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "GroupId,InsDate,UpdDate,YukoFlg,JichitaiId,GroupName,Email,HomePege,ImageUrl,GroupDescription")] Groups groups)
         {
+
+
+            //作成日時セット
+            groups.InsDate = DateTime.Now;
+            //更新日時セット
+            groups.UpdDate = DateTime.Now;
+            //有効フラグセット
+            groups.YukoFlg = "1";
+
+            //エラーをクリア
+            ModelState.Remove("YukoFlg");            
+            
             if (ModelState.IsValid)
             {
                 db.groups.Add(groups);
@@ -61,6 +89,22 @@ namespace matidesign.Controllers
         // GET: Groups/Edit/5
         public ActionResult Edit(int? id)
         {
+            //LINQで並び替えて取得
+            var rows = db.jichitai.ToList()
+                .OrderBy(r => r.JichitaiId);
+
+            //ドロップダウンリストの配列を定義
+            List<SelectListItem> selItem = new List<SelectListItem>();
+
+            //取得したデータを配列に格納
+            foreach (var r in rows)
+            {
+                selItem.Add(new SelectListItem() { Value = r.JichitaiId, Text = r.JichitaiId + " " + r.JichitaiName });
+            }
+
+            //Viewへ値を渡す
+            ViewBag.SelectOptions = selItem;
+
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);

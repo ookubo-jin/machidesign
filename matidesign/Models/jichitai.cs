@@ -47,6 +47,10 @@ namespace matidesign.Models
         [RegularExpression("[^ -~｡-ﾟ]{1,200}", ErrorMessage = "{0}は全角文字で入力してください。")]
         public string JichitaiName { get; set; }
 
+        //外部キー
+        //public virtual ICollection<Groups> groups { get; set; }
+
+
     }
 
 }

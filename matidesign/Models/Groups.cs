@@ -65,5 +65,9 @@ namespace matidesign.Models
         [DataType(DataType.MultilineText)]
         public string GroupDescription { get; set; }
 
+        [DisplayName("自治体名")]
+        public virtual Jichitai Jichitai { get; set; }
+
+
     }
 }

@@ -10,23 +10,41 @@ namespace matidesign.Models
   {
     protected override void Seed(machidesignDBContext context)  
     {
-      //初期データ登録時のコードサンプル
-      //var books = new List<Book> {
+        //初期データ作成 Jichitai
 
-      //  new Book { Isbn = "978-4-8399-3793-5",
-      //             Title = "HTML5基礎",
-      //             Price = 2980,
-      //             Publish="毎日コミュニケーションズ",
-      //             Published = DateTime.Parse("2011-03-25") },
+        var jichitai = new List<Jichitai> {
 
-      //  new Book { Isbn = "978-4-7741-4663-8",
-      //             Title = "Ruby on Rails 3プログラミング",
-      //             Price = 3675, Publish="技術評論社",
-      //             Published = DateTime.Parse("2011-05-12") },
-      //  ……中略……
-      //};
-      //books.ForEach(b => context.Books.Add(b));
-      //context.SaveChanges();
+        new Jichitai { JichitaiId = "123456",
+                        //作成日時セット
+                        InsDate = DateTime.Now,
+                        //更新日時セット
+                        UpdDate = DateTime.Now,
+                        //有効フラグセット
+                        YukoFlg = "1",
+                        JichitaiName = "郡山市"
+                        }
+      };
+      jichitai.ForEach(b => context.jichitai.Add(b));
+      context.SaveChanges();
+
+      //初期データ作成 Groups
+
+      var groups = new List<Groups> {
+
+        new Groups {GroupId=1, 
+                        //作成日時セット
+                        InsDate = DateTime.Now,
+                        //更新日時セット
+                        UpdDate = DateTime.Now,
+                        //有効フラグセット
+                        YukoFlg = "1",
+                        JichitaiId = "123456",
+                        GroupName = "code for KORIYAMA",
+                        GroupDescription = "code for KORIYAMA"
+                        }
+      };
+      groups.ForEach(b => context.groups.Add(b));
+      context.SaveChanges();
     }
   }
 }
