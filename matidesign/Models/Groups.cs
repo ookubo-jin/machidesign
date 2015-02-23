@@ -26,6 +26,14 @@ namespace matidesign.Models
         [DisplayFormat(DataFormatString = "{0:yyyy/MM/dd HH:mm:ss}")]
         public DateTime UpdDate { get; set; }
 
+        [StringLength(100)]
+        [DisplayName("作成アカウントID")]
+        public string InsAccountId { get; set; }
+
+        [StringLength(100)]
+        [DisplayName("更新アカウントID")]
+        public string UpdAccountId { get; set; }
+
         [Required()]
         [StringLength(1)]
         [DisplayName("有効フラグ")]
@@ -35,6 +43,9 @@ namespace matidesign.Models
         [StringLength(6)]
         [DisplayName("自治体コード")]
         public string JichitaiId { get; set; }
+
+        [DisplayName("自治体")]
+        public virtual Jichitai Jichitai { get; set; }
 
         [Required()]
         [StringLength(400)]
@@ -64,10 +75,6 @@ namespace matidesign.Models
         [DisplayName("概要")]
         [DataType(DataType.MultilineText)]
         public string GroupDescription { get; set; }
-
-        [DisplayName("自治体名")]
-        public virtual Jichitai Jichitai { get; set; }
-
 
     }
 }

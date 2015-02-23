@@ -15,7 +15,10 @@ namespace matidesign.Models
         [Key]
         [DisplayName("イベントID")]
         public int EventsId { get; set; }
-        
+
+        [DisplayName("イベント")]
+        public virtual Events Events { get; set; }
+
         [Key]
         [DisplayName("申し込みID")]
         public int ApplyId { get; set; }
@@ -30,6 +33,14 @@ namespace matidesign.Models
         [DisplayFormat(DataFormatString = "{0:yyyy/MM/dd HH:mm:ss}")]
         public DateTime UpdDate { get; set; }
 
+        [StringLength(100)]
+        [DisplayName("作成アカウントID")]
+        public string InsAccountId { get; set; }
+
+        [StringLength(100)]
+        [DisplayName("更新アカウントID")]
+        public string UpdAccountId { get; set; }
+
         [Required()]
         [StringLength(1)]
         [DisplayName("有効フラグ")]
@@ -40,10 +51,16 @@ namespace matidesign.Models
         [DisplayName("自治体コード")]
         public string JichitaiId { get; set; }
 
+        [DisplayName("自治体")]
+        public virtual Jichitai Jichitai { get; set; }
+
         [Required()]
         [StringLength(100)]
         [DisplayName("アカウントID")]
         public string AccountId { get; set; }
+
+        [DisplayName("アカウント")]
+        public virtual Account Account { get; set; }
 
         [Required()]
         [DisplayName("申込日時")]
@@ -52,7 +69,7 @@ namespace matidesign.Models
         [Required()]
         [DisplayName("キャンセル日時")]
         public DateTime CancellDate { get; set; }
-    
-    
+
+
     }
 }

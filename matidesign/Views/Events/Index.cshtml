@@ -1,0 +1,117 @@
+﻿@model IEnumerable<matidesign.Models.Events>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        @*<th>
+            @Html.DisplayNameFor(model => model.Jichitai.InsAccountId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.InsDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.UpdDate)
+        </th>*@
+        @*<th>
+            @Html.DisplayNameFor(model => model.InsAccountId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.UpdAccountId)
+        </th>*@
+        @*<th>
+            @Html.DisplayNameFor(model => model.YukoFlg)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.GroupsId)
+        </th>*@
+        <th>
+            @Html.DisplayNameFor(model => model.EventName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.KaisaiDate_Start)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.KaisaiTime_Start)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.KaisaiDate_End)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.KaisaiTime_End)
+        </th>
+        @*<th>
+            @Html.DisplayNameFor(model => model.EventDescription)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EventDetails)
+        </th>*@
+        <th>
+            @Html.DisplayNameFor(model => model.MaxNinzu)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        @*<td>
+            @Html.DisplayFor(modelItem => item.Jichitai.InsAccountId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.InsDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.UpdDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.InsAccountId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.UpdAccountId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.YukoFlg)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.GroupsId)
+        </td>*@
+        <td>
+            @Html.DisplayFor(modelItem => item.EventName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.KaisaiDate_Start)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.KaisaiTime_Start)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.KaisaiDate_End)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.KaisaiTime_End)
+        </td>
+        @*<td>
+            @Html.DisplayFor(modelItem => item.EventDescription)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EventDetails)
+        </td>*@
+        <td>
+            @Html.DisplayFor(modelItem => item.MaxNinzu)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.EventId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.EventId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.EventId })
+        </td>
+    </tr>
+}
+
+</table>

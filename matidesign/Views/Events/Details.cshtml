@@ -1,0 +1,138 @@
+﻿@model matidesign.Models.Events
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Events</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Jichitai.InsAccountId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Jichitai.InsAccountId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.InsDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.InsDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UpdDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UpdDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.InsAccountId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.InsAccountId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UpdAccountId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UpdAccountId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.YukoFlg)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.YukoFlg)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GroupsId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GroupsId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EventName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EventName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.KaisaiDate_Start)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.KaisaiDate_Start)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.KaisaiTime_Start)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.KaisaiTime_Start)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.KaisaiDate_End)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.KaisaiDate_End)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.KaisaiTime_End)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.KaisaiTime_End)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EventDescription)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EventDescription)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EventDetails)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EventDetails)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MaxNinzu)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MaxNinzu)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.EventId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -22,6 +22,24 @@ namespace matidesign.Models
                         //有効フラグセット
                         YukoFlg = "1",
                         JichitaiName = "郡山市"
+                        },
+        new Jichitai { JichitaiId = "888888",
+                        //作成日時セット
+                        InsDate = DateTime.Now,
+                        //更新日時セット
+                        UpdDate = DateTime.Now,
+                        //有効フラグセット
+                        YukoFlg = "1",
+                        JichitaiName = "世界"
+                        },
+        new Jichitai { JichitaiId = "999999",
+                        //作成日時セット
+                        InsDate = DateTime.Now,
+                        //更新日時セット
+                        UpdDate = DateTime.Now,
+                        //有効フラグセット
+                        YukoFlg = "1",
+                        JichitaiName = "全国"
                         }
       };
       jichitai.ForEach(b => context.jichitai.Add(b));

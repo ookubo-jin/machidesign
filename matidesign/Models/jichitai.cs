@@ -32,6 +32,14 @@ namespace matidesign.Models
         [DisplayFormat(DataFormatString = "{0:yyyy/MM/dd HH:mm:ss}")]
         public DateTime UpdDate { get; set; }
 
+        [StringLength(100)]
+        [DisplayName("作成アカウントID")]
+        public string InsAccountId { get; set; }
+
+        [StringLength(100)]
+        [DisplayName("更新アカウントID")]
+        public string UpdAccountId { get; set; }
+
         [Required()]
         [StringLength(1)]
         [DisplayName("有効フラグ")]
