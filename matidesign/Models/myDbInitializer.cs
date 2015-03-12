@@ -47,9 +47,9 @@ namespace matidesign.Models
 
       //初期データ作成 Groups
 
-      var groups = new List<Groups> {
+      var group = new List<Group> {
 
-        new Groups {GroupId=1, 
+        new Group {GroupId=1, 
                         //作成日時セット
                         InsDate = DateTime.Now,
                         //更新日時セット
@@ -59,9 +59,21 @@ namespace matidesign.Models
                         JichitaiId = "123456",
                         GroupName = "code for KORIYAMA",
                         GroupDescription = "code for KORIYAMA"
+                        },
+        new Group {GroupId=2, 
+                        //作成日時セット
+                        InsDate = DateTime.Now,
+                        //更新日時セット
+                        UpdDate = DateTime.Now,
+                        //有効フラグセット
+                        YukoFlg = "1",
+                        JichitaiId = "999999",
+                        GroupName = "エフスタ",
+                        GroupDescription = "エフスタ"
                         }
+
       };
-      groups.ForEach(b => context.groups.Add(b));
+      group.ForEach(b => context.group.Add(b));
       context.SaveChanges();
     }
   }

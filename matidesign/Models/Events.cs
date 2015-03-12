@@ -14,7 +14,7 @@ namespace matidesign.Models
     {
         [Key]
         [DisplayName("イベントID")]
-        public int EventId { get; set; }
+        public long EventsId { get; set; }
 
         [Required()]
         [DisplayName("作成日時")]
@@ -49,10 +49,10 @@ namespace matidesign.Models
 
         [Required()]
         [DisplayName("グループID")]
-        public int GroupsId { get; set; }
+        public long GroupId { get; set; }
 
         [DisplayName("グループ")]
-        public virtual Groups Groups { get; set; }
+        public virtual Group Group { get; set; }
 
         [Required()]
         [StringLength(400)]
@@ -60,22 +60,22 @@ namespace matidesign.Models
         public string EventName { get; set; }
 
         [Required()]
-        [StringLength(8)]
         [DisplayName("開催日（開始）")]
-        public string KaisaiDate_Start { get; set; }
+        [DisplayFormat(DataFormatString = "{0:yyyy/MM/dd}")]
+        public DateTime KaisaiDate_Start { get; set; }
 
         [Required()]
-        [StringLength(4)]
+        //[StringLength(4)]
         [DisplayName("開催時間（開始）")]
         public string KaisaiTime_Start { get; set; }
 
         [Required()]
-        [StringLength(8)]
         [DisplayName("開催日（終了）")]
-        public string KaisaiDate_End { get; set; }
+        [DisplayFormat(DataFormatString = "{0:yyyy/MM/dd}")]
+        public DateTime KaisaiDate_End { get; set; }
 
         [Required()]
-        [StringLength(4)]
+        //[StringLength(4)]
         [DisplayName("開催時間（終了）")]
         public string KaisaiTime_End { get; set; }
 

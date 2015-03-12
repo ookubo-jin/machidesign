@@ -56,7 +56,7 @@ namespace matidesign.Models
         public string JichitaiName { get; set; }
 
         //外部キー
-        //public virtual ICollection<Groups> groups { get; set; }
+        //public virtual ICollection<Groups> group { get; set; }
 
 
     }

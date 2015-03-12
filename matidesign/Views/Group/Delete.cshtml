@@ -1,0 +1,111 @@
+﻿@model matidesign.Models.Group
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>削除</h2>
+
+<h3>削除してよろしいですか？</h3>
+<div>
+    <h4>グループ情報</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.GroupId)
+            <br />
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GroupId)
+            <br />
+        </dd>
+
+        @*<dt>
+                @Html.DisplayNameFor(model => model.InsDate)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.InsDate)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.UpdDate)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.UpdDate)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.YukoFlg)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.YukoFlg)
+            </dd>*@
+
+        <dt>
+            @Html.DisplayNameFor(model => model.JichitaiId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.JichitaiId)
+            <br />
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GroupName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GroupName)
+            <br />
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Email)
+            <br />
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.HomePege)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HomePege)
+            <br />
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ImageUrl)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ImageUrl)
+            <br />
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GroupDescription)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GroupDescription)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

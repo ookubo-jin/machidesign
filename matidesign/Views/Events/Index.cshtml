@@ -30,7 +30,7 @@
             @Html.DisplayNameFor(model => model.YukoFlg)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.GroupsId)
+            @Html.DisplayNameFor(model => model.GroupId)
         </th>*@
         <th>
             @Html.DisplayNameFor(model => model.EventName)
@@ -80,7 +80,7 @@
             @Html.DisplayFor(modelItem => item.YukoFlg)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.GroupsId)
+            @Html.DisplayFor(modelItem => item.GroupId)
         </td>*@
         <td>
             @Html.DisplayFor(modelItem => item.EventName)
@@ -107,9 +107,9 @@
             @Html.DisplayFor(modelItem => item.MaxNinzu)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.EventId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.EventId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.EventId })
+            @Html.ActionLink("Edit", "Edit", new { id=item.EventsId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.EventsId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.EventsId })
         </td>
     </tr>
 }

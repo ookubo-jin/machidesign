@@ -4,71 +4,74 @@
     ViewBag.Title = "Create";
 }
 
-<h2>イベント登録</h2>
+<h2>新規登録</h2>
 
 
-@using (Html.BeginForm()) 
+@using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-    
+
     <div class="form-horizontal">
-        <h4>Events</h4>
+        <h4>イベント情報</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         @*<div class="form-group">
-            @Html.LabelFor(model => model.InsDate, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.InsDate, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.InsDate, "", new { @class = "text-danger" })
+                @Html.LabelFor(model => model.InsDate, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.InsDate, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.InsDate, "", new { @class = "text-danger" })
+                </div>
             </div>
-        </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.UpdDate, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.UpdDate, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.UpdDate, "", new { @class = "text-danger" })
+            <div class="form-group">
+                @Html.LabelFor(model => model.UpdDate, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.UpdDate, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.UpdDate, "", new { @class = "text-danger" })
+                </div>
             </div>
-        </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.InsAccountId, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.InsAccountId, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.InsAccountId, "", new { @class = "text-danger" })
+            <div class="form-group">
+                @Html.LabelFor(model => model.InsAccountId, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.InsAccountId, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.InsAccountId, "", new { @class = "text-danger" })
+                </div>
             </div>
-        </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.UpdAccountId, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.UpdAccountId, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.UpdAccountId, "", new { @class = "text-danger" })
-            </div>
-        </div>*@
-
-        @*<div class="form-group">
-            @Html.LabelFor(model => model.YukoFlg, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.YukoFlg, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.YukoFlg, "", new { @class = "text-danger" })
-            </div>
-        </div>*@
+            <div class="form-group">
+                @Html.LabelFor(model => model.UpdAccountId, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.UpdAccountId, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.UpdAccountId, "", new { @class = "text-danger" })
+                </div>
+            </div>*@
 
         @*<div class="form-group">
-            @Html.LabelFor(model => model.JichitaiId, "JichitaiId", htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.DropDownList("JichitaiId", null, htmlAttributes: new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.JichitaiId, "", new { @class = "text-danger" })
-            </div>
-        </div>*@
+                @Html.LabelFor(model => model.YukoFlg, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.YukoFlg, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.YukoFlg, "", new { @class = "text-danger" })
+                </div>
+            </div>*@
+
+        @*<div class="form-group">
+                @Html.LabelFor(model => model.JichitaiId, "JichitaiId", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.DropDownList("JichitaiId", null, htmlAttributes: new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.JichitaiId, "", new { @class = "text-danger" })
+                </div>
+            </div>*@
 
         <div class="form-group">
-            @Html.LabelFor(model => model.GroupsId, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.GroupId, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.DropDownListFor(model => model.GroupsId, (IEnumerable<SelectListItem>)ViewBag.SelectOptions, new { @class = "form-control" })
-                @*@Html.EditorFor(model => model.GroupsId, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.GroupsId, "", new { @class = "text-danger" })*@
+                @*@Html.DropDownListFor(model => model.GroupId, (IEnumerable<SelectListItem>)ViewBag.GroupId, new { @class = "form-control" })*@
+                @*@Html.DropDownListFor(model => model.GroupId, null, new { @class = "form-control" })*@
+                @Html.DropDownListFor(model => model.GroupId, ViewBag.Group as SelectList, new { @class = "form-control" })
+                @*@Html.DropDownList("GroupId", (IEnumerable<SelectListItem>)ViewBag.GroupId, new { @class = "form-control" })*@
+                @*@Html.EditorFor(model => model.GroupsId, new { htmlAttributes = new { @class = "form-control" } })*@
+                    @*@Html.ValidationMessageFor(model => model.GroupId, "", new { @class = "text-danger" })*@
             </div>
         </div>
 
@@ -84,19 +87,19 @@
             @Html.LabelFor(model => model.KaisaiDate_Start, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.KaisaiDate_Start, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.KaisaiDate_Start, "", new { @class = "text-danger" })
                 @Html.EditorFor(model => model.KaisaiTime_Start, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.KaisaiDate_Start, "", new { @class = "text-danger" })
                 @Html.ValidationMessageFor(model => model.KaisaiTime_Start, "", new { @class = "text-danger" })
             </div>
         </div>
 
         @*<div class="form-group">
-            @Html.LabelFor(model => model.KaisaiTime_Start, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.KaisaiTime_Start, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.KaisaiTime_Start, "", new { @class = "text-danger" })
-            </div>
-        </div>*@
+                @Html.LabelFor(model => model.KaisaiTime_Start, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.KaisaiTime_Start, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.KaisaiTime_Start, "", new { @class = "text-danger" })
+                </div>
+            </div>*@
 
         <div class="form-group">
             @Html.LabelFor(model => model.KaisaiDate_End, htmlAttributes: new { @class = "control-label col-md-2" })
@@ -109,12 +112,12 @@
         </div>
 
         @*<div class="form-group">
-            @Html.LabelFor(model => model.KaisaiTime_End, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.KaisaiTime_End, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.KaisaiTime_End, "", new { @class = "text-danger" })
-            </div>
-        </div>*@
+                @Html.LabelFor(model => model.KaisaiTime_End, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.KaisaiTime_End, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.KaisaiTime_End, "", new { @class = "text-danger" })
+                </div>
+            </div>*@
 
         <div class="form-group">
             @Html.LabelFor(model => model.EventDescription, htmlAttributes: new { @class = "control-label col-md-2" })
@@ -146,19 +149,51 @@
             </div>
         </div>
     </div>
-}
+    }
 
-<div>
-    @Html.ActionLink("Back to List", "Index")
-</div>
+    <div>
+        @Html.ActionLink("Back to List", "Index")
+    </div>
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
-<script type="text/javascript">
-    $(function () {
-        //カレンダーの表示
-        $("#KaisaiDate_Start").datepicker();
-    });
-</script>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.10.4/themes/flick/jquery-ui.css" />
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/i18n/jquery.ui.datepicker-ja.js"></script>
+    <style type="text/css">
+        .ui-datepicker select.ui-datepicker-month,
+        .ui-datepicker select.ui-datepicker-year {
+            width: auto;
+        }
+    </style>
+    <link rel="stylesheet" href="~/Scripts/jquery-timepicker/jquery.timepicker.css" />
+    <script src="~/Scripts/jquery-timepicker/jquery.timepicker.min.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            // 2日本語を有効化
+            $.datepicker.setDefaults($.datepicker.regional['ja']);
+            // 3日付選択ボックスを生成
+            $('#KaisaiDate_Start').datepicker({
+                dateFormat: 'yy/mm/dd',
+                changeMonth: true,
+                changeYear: true
+            });
+            // 3日付選択ボックスを生成
+            $('#KaisaiDate_End').datepicker({
+                dateFormat: 'yy/mm/dd',
+                changeMonth: true,
+                changeYear: true
+            });
+            $('#KaisaiTime_Start').timepicker({ 'step': 30, 'timeFormat': 'H:i', 'scrollDefaultNow': true });
+            $('#KaisaiTime_End').timepicker({ 'step': 30, 'timeFormat': 'H:i', 'scrollDefaultNow': true });
+            jQuery("#MaxNinzu").spinner(
+                    {
+                        max: 99999,
+                        min: 0
+                    }
+                );
 
+        });
+        </script>
 }

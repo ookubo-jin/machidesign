@@ -9,7 +9,7 @@ namespace matidesign.Models
     public class machidesignDBContext : DbContext
     {
         public DbSet<Jichitai> jichitai { get; set; }
-        public DbSet<Groups> groups { get; set; }
+        public DbSet<Group> group { get; set; }
         public DbSet<Events> events { get; set; }
 
 

@@ -39,24 +39,43 @@ namespace matidesign.Controllers
         // GET: Events/Create
         public ActionResult Create()
         {
+            ////LINQで並び替えて取得
+            //var rows = db.group.ToList()
+            //    .OrderBy(r => r.GroupName);
+
+            ////ドロップダウンリストの配列を定義
+            //List<SelectListItem> selItem = new List<SelectListItem>();
+
+            ////取得したデータを配列に格納
+            //foreach (var r in rows)
+            //{
+            //    selItem.Add(new SelectListItem() { Value = r.GroupId.ToString(), Text = r.GroupName });
+            //}
+            ////Viewへ値を渡す
+            //ViewBag.GroupId = selItem;
+
+            ////Viewへ値を渡す
+            //return View();
+
+
             //LINQで並び替えて取得
-            var rows = db.groups.ToList()
+            var rows = db.group.ToList()
                 .OrderBy(r => r.GroupName);
 
             //ドロップダウンリストの配列を定義
-            List<SelectListItem> selItem = new List<SelectListItem>();
+            var group = new List<Group>();
 
             //取得したデータを配列に格納
             foreach (var r in rows)
             {
-                selItem.Add(new SelectListItem() { Value = r.GroupId.ToString(), Text = r.GroupName });
+                group.Add(new Group() { GroupId = r.GroupId, GroupName = r.GroupName });
             }
             //Viewへ値を渡す
-            ViewBag.SelectOptions = selItem;
+            ViewBag.Group = new SelectList(group, "GroupId", "GroupName");
 
             //Viewへ値を渡す
-            //ViewBag.SelectOptions = selItem; ViewBag.JichitaiId = new SelectList(db.jichitai, "JichitaiId", "InsAccountId");
             return View();
+        
         }
 
         // POST: Events/Create
@@ -64,8 +83,18 @@ namespace matidesign.Controllers
         // 詳細については、http://go.microsoft.com/fwlink/?LinkId=317598 を参照してください。
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "EventId,InsDate,UpdDate,InsAccountId,UpdAccountId,YukoFlg,JichitaiId,GroupsId,EventName,KaisaiDate_Start,KaisaiTime_Start,KaisaiDate_End,KaisaiTime_End,EventDescription,EventDetails,MaxNinzu")] Events events)
+        public ActionResult Create([Bind(Include = "EventsId,InsDate,UpdDate,InsAccountId,UpdAccountId,YukoFlg,JichitaiId,GroupId,EventName,KaisaiDate_Start,KaisaiTime_Start,KaisaiDate_End,KaisaiTime_End,EventDescription,EventDetails,MaxNinzu")] Events events)
         {
+
+            //作成日時セット
+            events.InsDate = DateTime.Now;
+            //更新日時セット
+            events.UpdDate = DateTime.Now;
+            //有効フラグセット
+            events.YukoFlg = "1";
+
+            //エラーをクリア
+            ModelState.Remove("YukoFlg");                
             if (ModelState.IsValid)
             {
                 db.events.Add(events);
@@ -73,7 +102,7 @@ namespace matidesign.Controllers
                 return RedirectToAction("Index");
             }
 
-            ViewBag.JichitaiId = new SelectList(db.jichitai, "JichitaiId", "InsAccountId", events.JichitaiId);
+            //ViewBag.JichitaiId = new SelectList(db.jichitai, "JichitaiId", "InsAccountId", events.JichitaiId);
             return View(events);
         }
 
@@ -98,7 +127,7 @@ namespace matidesign.Controllers
         // 詳細については、http://go.microsoft.com/fwlink/?LinkId=317598 を参照してください。
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "EventId,InsDate,UpdDate,InsAccountId,UpdAccountId,YukoFlg,JichitaiId,GroupsId,EventName,KaisaiDate_Start,KaisaiTime_Start,KaisaiDate_End,KaisaiTime_End,EventDescription,EventDetails,MaxNinzu")] Events events)
+        public ActionResult Edit([Bind(Include = "EventsId,InsDate,UpdDate,InsAccountId,UpdAccountId,YukoFlg,JichitaiId,GroupId,EventName,KaisaiDate_Start,KaisaiTime_Start,KaisaiDate_End,KaisaiTime_End,EventDescription,EventDetails,MaxNinzu")] Events events)
         {
             if (ModelState.IsValid)
             {

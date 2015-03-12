@@ -1,0 +1,125 @@
+﻿@model matidesign.Models.Group
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>詳細表示</h2>
+
+<div>
+    <h4>グループ情報</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.GroupId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GroupId)
+        </dd>
+        <br />
+
+        <dt>
+            @Html.DisplayNameFor(model => model.InsDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.InsDate)
+        </dd>
+        <br />
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UpdDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UpdDate)
+        </dd>
+        <br />
+
+        <dt>
+            @Html.DisplayNameFor(model => model.InsAccountId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.InsAccountId)
+        </dd>
+        <br />
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UpdAccountId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UpdAccountId)
+        </dd>
+        <br />
+
+        <dt>
+            @Html.DisplayNameFor(model => model.YukoFlg)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.YukoFlg)
+        </dd>
+        <br />
+
+        <dt>
+            @Html.DisplayNameFor(model => model.JichitaiId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.JichitaiId)
+        </dd>
+        <br />
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GroupName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GroupName)
+        </dd>
+        <br />
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+        <br />
+
+        <dt>
+            @Html.DisplayNameFor(model => model.HomePege)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HomePege)
+        </dd>
+        <br />
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ImageUrl)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ImageUrl)
+        </dd>
+        <br />
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GroupDescription)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GroupDescription)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.GroupId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
