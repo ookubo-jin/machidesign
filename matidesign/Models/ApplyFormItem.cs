@@ -10,9 +10,9 @@ using System.Web.Mvc;
 namespace matidesign.Models
 {
     /// <summary>
-    /// アンケート項目内容を表すクラス・コントロール
+    /// 申込みフォームを表すクラス・コントロール
     /// </summary>
-    public class EnqueteItemType
+    public class ApplyFormItem
     {
         [Key]
         [DisplayName("グループID")]
@@ -22,15 +22,8 @@ namespace matidesign.Models
         public virtual Group Group { get; set; }
 
         [Key]
-        [DisplayName("アンケート項目ID")]
-        public int EnqueteItemId { get; set; }
-
-        [DisplayName("アンケート項目情報")]
-        public virtual EnqueteItem EnqueteItem { get; set; }
-
-        [Key]
-        [DisplayName("アンケート項目内容ID")]
-        public int EnqueteItemTypeId { get; set; }
+        [DisplayName("申込みフォーム項目ID")]
+        public int ApplyFormItemId { get; set; }
 
         [Required()]
         [DisplayName("作成日時")]
@@ -58,16 +51,19 @@ namespace matidesign.Models
 
         [Required()]
         [StringLength(400)]
-        [DisplayName("アンケート項目内容名")]
-        public string TypeName { get; set; }
+        [DisplayName("申込みフォーム項目名")]
+        public string ItemName { get; set; }
 
         [StringLength(4000)]
-        [DisplayName("アンケート項目内容概要")]
+        [DisplayName("申込みフォーム項目概要")]
         [DataType(DataType.MultilineText)]
-        public string TypeDescription { get; set; }
+        public string ItemDescription { get; set; }
 
-        [DisplayName("アンケート項目内容順番")]
-        public int TypeSort { get; set; }
+        [DisplayName("申込みフォーム項目タイプ")]
+        public int ItemType { get; set; }
+
+        [DisplayName("申込みフォーム項目順番")]
+        public int ItemSort { get; set; }
 
     }
 }

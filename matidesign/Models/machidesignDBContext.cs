@@ -12,6 +12,10 @@ namespace matidesign.Models
         public DbSet<Group> group { get; set; }
         public DbSet<Events> events { get; set; }
 
+        public System.Data.Entity.DbSet<matidesign.Models.MachiarukiData> MachiarukiDatas { get; set; }
+
+        public System.Data.Entity.DbSet<matidesign.Models.Account> Accounts { get; set; }
+
 
     }
 }

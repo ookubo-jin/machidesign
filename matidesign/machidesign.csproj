@@ -167,6 +167,7 @@
     <Compile Include="Controllers\GroupController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\JichitaiController.cs" />
+    <Compile Include="Controllers\MachiarukiDataController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -174,6 +175,8 @@
     <Compile Include="Models\Account.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Apply.cs" />
+    <Compile Include="Models\ApplyFormItem.cs" />
+    <Compile Include="Models\ApplyFormItemType.cs" />
     <Compile Include="Models\Events.cs" />
     <Compile Include="Models\EnqueteItem.cs" />
     <Compile Include="Models\EnqueteItemType.cs" />
@@ -334,6 +337,11 @@
     <Content Include="Views\Events\Details.cshtml" />
     <Content Include="Views\Events\Edit.cshtml" />
     <Content Include="Views\Events\Index.cshtml" />
+    <Content Include="Views\MachiarukiData\Create.cshtml" />
+    <Content Include="Views\MachiarukiData\Delete.cshtml" />
+    <Content Include="Views\MachiarukiData\Details.cshtml" />
+    <Content Include="Views\MachiarukiData\Edit.cshtml" />
+    <Content Include="Views\MachiarukiData\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

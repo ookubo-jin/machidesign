@@ -14,26 +14,29 @@ namespace matidesign.Models
     /// </summary>
     public class MachiarukiDataDetails
     {
-
         [Key]
-        [DisplayName("イベントID")]
-        public long EventsId { get; set; }
+        [DisplayName("まち歩き結果項目ID")]
+        public double MachiarukiDataDetailsId { get; set; }
 
-        [DisplayName("イベント情報")]
-        public virtual Events Events { get; set; }
+        //[Key]
+        //[DisplayName("イベントID")]
+        //public long EventsId { get; set; }
 
-        [Key]
-        [StringLength(100)]
-        [DisplayName("アカウントID")]
-        public string AccountId { get; set; }
+        //[DisplayName("イベント情報")]
+        //public virtual Events Events { get; set; }
 
-        [DisplayName("アカウント情報")]
-        public virtual Account Account { get; set; }
+        //[Key]
+        //[StringLength(100)]
+        //[DisplayName("アカウントID")]
+        //public string AccountId { get; set; }
 
-        [Key]
-        [StringLength(13)]
-        [DisplayName("作成キー")]
-        public string CreateKey { get; set; }
+        //[DisplayName("アカウント情報")]
+        //public virtual Account Account { get; set; }
+
+        //[Key]
+        //[StringLength(13)]
+        //[DisplayName("作成キー")]
+        //public string CreateKey { get; set; }
 
         [Required()]
         [DisplayName("作成日時")]
@@ -59,11 +62,17 @@ namespace matidesign.Models
         [Range(0, 1, ErrorMessage = "{0}は{1}～{2}の間で入力してください。")]
         public string YukoFlg { get; set; }
 
+        [DisplayName("まち歩き結果ID")]
+        public double MachiarukiDataId { get; set; }
+
+        [DisplayName("まち歩き結果情報")]
+        public virtual MachiarukiData MachiarukiData { get; set; }
+
         [DisplayName("まち歩き項目ID")]
-        public int MachiarukiDetailsId { get; set; }
+        public int MachiarukiItemId { get; set; }
 
         [DisplayName("まち歩き項目情報")]
-        public virtual MachiarukiItem MachiarukiDetails { get; set; }
+        public virtual MachiarukiItem MachiarukiItem { get; set; }
 
         [DisplayName("項目（数字）")]
         public double ItemNum { get; set; }

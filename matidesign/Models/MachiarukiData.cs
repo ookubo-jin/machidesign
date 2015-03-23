@@ -14,26 +14,23 @@ namespace matidesign.Models
     /// </summary>
     public class MachiarukiData
     {
-
         [Key]
-        [DisplayName("イベントID")]
-        public long EventsId { get; set; }
+        [DisplayName("まち歩き結果ID")]
+        public double MachiarukiDataId { get; set; }
 
-        [DisplayName("イベント情報")]
-        public virtual Events Events { get; set; }
+        //[Key]
+        //[DisplayName("イベントID")]
+        //public long EventsId { get; set; }
 
-        [Key]
-        [StringLength(100)]
-        [DisplayName("アカウントID")]
-        public string AccountId { get; set; }
+        //[Key]
+        //[StringLength(100)]
+        //[DisplayName("アカウントID")]
+        //public string AccountId { get; set; }
 
-        [DisplayName("アカウント情報")]
-        public virtual Account Account { get; set; }
-
-        [Key]
-        [StringLength(13)]
-        [DisplayName("作成キー")]
-        public string CreateKey { get; set; }
+        //[Key]
+        //[StringLength(13)]
+        //[DisplayName("作成キー")]
+        //public string CreateKey { get; set; }
 
         [Required()]
         [DisplayName("作成日時")]
@@ -59,6 +56,19 @@ namespace matidesign.Models
         [Range(0, 1, ErrorMessage = "{0}は{1}～{2}の間で入力してください。")]
         public string YukoFlg { get; set; }
 
+        [DisplayName("イベントID")]
+        public long EventsId { get; set; }
+
+        [DisplayName("イベント情報")]
+        public virtual Events Events { get; set; }
+
+        [StringLength(100)]
+        [DisplayName("アカウントID")]
+        public string AccountId { get; set; }
+
+        [DisplayName("アカウント情報")]
+        public virtual Account Account { get; set; }
+
         [DisplayName("緯度")]
         public double Latitude { get; set; }
 
@@ -79,7 +89,6 @@ namespace matidesign.Models
 
         [DisplayName("速度（ｍ/S）")]
         public double Speed { get; set; }
-
 
     }
 }
