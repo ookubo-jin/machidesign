@@ -10,17 +10,30 @@ using System.Web.Mvc;
 namespace matidesign.Models
 {
     /// <summary>
-    /// 自治体を表すクラス・コントロール
+    /// まち歩き結果項目を格納するクラス・コントロール
     /// </summary>
-    public class Jichitai
+    public class MachiarukiDataDetails
     {
 
         [Key]
-        [StringLength(6)]
-        [DisplayName("自治体コード")]
-        [RegularExpression("[0-9]{6}", ErrorMessage = "{0}は数字6桁で入力してください。")]
-        //[Remote("CheckJichitaiId", "jichitaiController", ErrorMessage = "既にこの{0}は使用されています。")]
-        public string JichitaiId { get; set; }
+        [DisplayName("イベントID")]
+        public long EventsId { get; set; }
+
+        [DisplayName("イベント情報")]
+        public virtual Events Events { get; set; }
+
+        [Key]
+        [StringLength(100)]
+        [DisplayName("アカウントID")]
+        public string AccountId { get; set; }
+
+        [DisplayName("アカウント情報")]
+        public virtual Account Account { get; set; }
+
+        [Key]
+        [StringLength(13)]
+        [DisplayName("作成キー")]
+        public string CreateKey { get; set; }
 
         [Required()]
         [DisplayName("作成日時")]
@@ -44,21 +57,19 @@ namespace matidesign.Models
         [StringLength(1)]
         [DisplayName("有効フラグ")]
         [Range(0, 1, ErrorMessage = "{0}は{1}～{2}の間で入力してください。")]
-        //[RegularExpression("[0-1]{1}", ErrorMessage = "{0}は0か1を入力してください。")]
         public string YukoFlg { get; set; }
 
-        [Required()]
-        [StringLength(200)]
-        [DisplayName("自治体名")]
-        //[RegularExpression("^[ 　][^ -~。-゜][ 　]*${1,200}", ErrorMessage = "{0}は全角文字で入力してください。")]
-        //[RegularExpression("[^[ 　][^ -~。-゜][ 　]*$]{1,200}", ErrorMessage = "{0}は全角文字で入力してください。")]
-        [RegularExpression("[^ -~｡-ﾟ]{1,200}", ErrorMessage = "{0}は全角文字で入力してください。")]
-        public string JichitaiName { get; set; }
+        [DisplayName("まち歩き項目ID")]
+        public int MachiarukiDetailsId { get; set; }
 
-        //外部キー
-        //public virtual ICollection<Groups> group { get; set; }
+        [DisplayName("まち歩き項目情報")]
+        public virtual MachiarukiItem MachiarukiDetails { get; set; }
 
+        [DisplayName("項目（数字）")]
+        public double ItemNum { get; set; }
+
+        [DisplayName("項目（文字）")]
+        public string ItemStr { get; set; }
 
     }
-
 }

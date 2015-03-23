@@ -4,7 +4,7 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<h2>イベント一覧</h2>
 
 <p>
     @Html.ActionLink("Create New", "Create")
@@ -38,15 +38,15 @@
         <th>
             @Html.DisplayNameFor(model => model.KaisaiDate_Start)
         </th>
-        <th>
+        @*<th>
             @Html.DisplayNameFor(model => model.KaisaiTime_Start)
-        </th>
+        </th>*@
         <th>
             @Html.DisplayNameFor(model => model.KaisaiDate_End)
         </th>
-        <th>
+        @*<th>
             @Html.DisplayNameFor(model => model.KaisaiTime_End)
-        </th>
+        </th>*@
         @*<th>
             @Html.DisplayNameFor(model => model.EventDescription)
         </th>
@@ -87,14 +87,10 @@
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.KaisaiDate_Start)
-        </td>
-        <td>
             @Html.DisplayFor(modelItem => item.KaisaiTime_Start)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.KaisaiDate_End)
-        </td>
-        <td>
             @Html.DisplayFor(modelItem => item.KaisaiTime_End)
         </td>
         @*<td>

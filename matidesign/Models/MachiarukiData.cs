@@ -2,26 +2,38 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Data.Entity;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
+using System.Web.Mvc;
 
 namespace matidesign.Models
 {
     /// <summary>
-    /// 申し込みを表すクラス・コントロール（検討中）
+    /// まち歩き結果を格納するクラス・コントロール
     /// </summary>
-    public class Apply
+    public class MachiarukiData
     {
+
         [Key]
         [DisplayName("イベントID")]
-        public int EventsId { get; set; }
+        public long EventsId { get; set; }
 
-        [DisplayName("イベント")]
+        [DisplayName("イベント情報")]
         public virtual Events Events { get; set; }
 
         [Key]
-        [DisplayName("申し込みID")]
-        public int ApplyId { get; set; }
+        [StringLength(100)]
+        [DisplayName("アカウントID")]
+        public string AccountId { get; set; }
+
+        [DisplayName("アカウント情報")]
+        public virtual Account Account { get; set; }
+
+        [Key]
+        [StringLength(13)]
+        [DisplayName("作成キー")]
+        public string CreateKey { get; set; }
 
         [Required()]
         [DisplayName("作成日時")]
@@ -47,28 +59,26 @@ namespace matidesign.Models
         [Range(0, 1, ErrorMessage = "{0}は{1}～{2}の間で入力してください。")]
         public string YukoFlg { get; set; }
 
-        //[StringLength(6)]
-        //[DisplayName("自治体コード")]
-        //public string JichitaiId { get; set; }
+        [DisplayName("緯度")]
+        public double Latitude { get; set; }
 
-        //[DisplayName("自治体")]
-        //public virtual Jichitai Jichitai { get; set; }
+        [DisplayName("経度")]
+        public double Longitude { get; set; }
 
-        [Required()]
-        [StringLength(100)]
-        [DisplayName("アカウントID")]
-        public string AccountId { get; set; }
+        [DisplayName("高度")]
+        public double Altitude { get; set; }
 
-        [DisplayName("アカウント")]
-        public virtual Account Account { get; set; }
+        [DisplayName("緯度、経度の精度")]
+        public double Accuracy { get; set; }
 
-        [DisplayName("申込日時")]
-        [DisplayFormat(DataFormatString = "{0:yyyy/MM/dd HH:mm:ss}", ApplyFormatInEditMode = true)]
-        public DateTime ApplyDate { get; set; }
+        [DisplayName("高度の精度")]
+        public double AltitudeAccuracy { get; set; }
 
-        [DisplayName("キャンセル日時")]
-        [DisplayFormat(DataFormatString = "{0:yyyy/MM/dd HH:mm:ss}", ApplyFormatInEditMode = true)]
-        public DateTime CancellDate { get; set; }
+        [DisplayName("方角（度）")]
+        public double Heading { get; set; }
+
+        [DisplayName("速度（ｍ/S）")]
+        public double Speed { get; set; }
 
 
     }

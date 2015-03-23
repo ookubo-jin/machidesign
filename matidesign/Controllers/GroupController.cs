@@ -124,6 +124,9 @@ namespace matidesign.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "GroupId,InsDate,UpdDate,YukoFlg,JichitaiId,GroupName,Email,HomePege,ImageUrl,GroupDescription")] Group group)
         {
+            //更新日時セット
+            group.UpdDate = DateTime.Now; 
+            
             if (ModelState.IsValid)
             {
                 db.Entry(group).State = EntityState.Modified;

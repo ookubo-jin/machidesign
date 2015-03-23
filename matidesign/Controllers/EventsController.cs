@@ -17,8 +17,9 @@ namespace matidesign.Controllers
         // GET: Events
         public ActionResult Index()
         {
-            var events = db.events.Include(e => e.Jichitai);
-            return View(events.ToList());
+            //var events = db.events.Include(e => e.Jichitai);
+            //return View(events.ToList());
+            return View(db.events.ToList());
         }
 
         // GET: Events/Details/5
@@ -118,7 +119,24 @@ namespace matidesign.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.JichitaiId = new SelectList(db.jichitai, "JichitaiId", "InsAccountId", events.JichitaiId);
+
+
+            //LINQで並び替えて取得
+            var rows = db.group.ToList()
+                .OrderBy(r => r.GroupName);
+
+            //ドロップダウンリストの配列を定義
+            var group = new List<Group>();
+
+            //取得したデータを配列に格納
+            foreach (var r in rows)
+            {
+                group.Add(new Group() { GroupId = r.GroupId, GroupName = r.GroupName });
+            }
+            //Viewへ値を渡す
+            ViewBag.Group = new SelectList(group, "GroupId", "GroupName", events.GroupId);
+
+            //ViewBag.JichitaiId = new SelectList(db.jichitai, "JichitaiId", "InsAccountId", events.JichitaiId);
             return View(events);
         }
 
@@ -129,13 +147,16 @@ namespace matidesign.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "EventsId,InsDate,UpdDate,InsAccountId,UpdAccountId,YukoFlg,JichitaiId,GroupId,EventName,KaisaiDate_Start,KaisaiTime_Start,KaisaiDate_End,KaisaiTime_End,EventDescription,EventDetails,MaxNinzu")] Events events)
         {
+            //更新日時セット
+            events.UpdDate = DateTime.Now; 
+            
             if (ModelState.IsValid)
             {
                 db.Entry(events).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.JichitaiId = new SelectList(db.jichitai, "JichitaiId", "InsAccountId", events.JichitaiId);
+            //ViewBag.JichitaiId = new SelectList(db.jichitai, "JichitaiId", "InsAccountId", events.JichitaiId);
             return View(events);
         }
 

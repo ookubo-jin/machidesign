@@ -71,7 +71,7 @@
                 @Html.DropDownListFor(model => model.GroupId, ViewBag.Group as SelectList, new { @class = "form-control" })
                 @*@Html.DropDownList("GroupId", (IEnumerable<SelectListItem>)ViewBag.GroupId, new { @class = "form-control" })*@
                 @*@Html.EditorFor(model => model.GroupsId, new { htmlAttributes = new { @class = "form-control" } })*@
-                    @*@Html.ValidationMessageFor(model => model.GroupId, "", new { @class = "text-danger" })*@
+                @*@Html.ValidationMessageFor(model => model.GroupId, "", new { @class = "text-danger" })*@
             </div>
         </div>
 
@@ -136,10 +136,50 @@
         </div>
 
         <div class="form-group">
+            @Html.LabelFor(model => model.Kaijo, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Kaijo, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Kaijo, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.KaijoAdr, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.KaijoAdr, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.KaijoAdr, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.KaijoUrl, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.KaijoUrl, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.KaijoUrl, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
             @Html.LabelFor(model => model.MaxNinzu, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.MaxNinzu, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.MaxNinzu, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Kaihi, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Kaihi, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Kaihi, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.KaihiBiko, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.KaihiBiko, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.KaihiBiko, "", new { @class = "text-danger" })
             </div>
         </div>
 
@@ -149,11 +189,11 @@
             </div>
         </div>
     </div>
-    }
+}
 
-    <div>
-        @Html.ActionLink("Back to List", "Index")
-    </div>
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
@@ -195,5 +235,5 @@
                 );
 
         });
-        </script>
+    </script>
 }

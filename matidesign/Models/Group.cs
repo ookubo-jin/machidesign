@@ -18,12 +18,12 @@ namespace matidesign.Models
 
         [Required()]
         [DisplayName("作成日時")]
-        [DisplayFormat(DataFormatString = "{0:yyyy/MM/dd HH:mm:ss}")]
+        [DisplayFormat(DataFormatString = "{0:yyyy/MM/dd HH:mm:ss}", ApplyFormatInEditMode = true)]
         public DateTime InsDate { get; set; }
 
         [Required()]
         [DisplayName("更新日時")]
-        [DisplayFormat(DataFormatString = "{0:yyyy/MM/dd HH:mm:ss}")]
+        [DisplayFormat(DataFormatString = "{0:yyyy/MM/dd HH:mm:ss}", ApplyFormatInEditMode = true)]
         public DateTime UpdDate { get; set; }
 
         [StringLength(100)]
@@ -58,13 +58,12 @@ namespace matidesign.Models
         [DataType(DataType.EmailAddress)]
         public string Email { get; set; }
 
-        [EmailAddress]
+        [Url]
         [StringLength(2000)]
         [DisplayName("URL")]
         [DataType(DataType.Url)]
         public string HomePege { get; set; }
 
-        [EmailAddress]
         [StringLength(2000)]
         [DisplayName("イメージ画像")]
         [DataType(DataType.ImageUrl)]

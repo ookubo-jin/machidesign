@@ -19,12 +19,12 @@ namespace matidesign.Models
 
         [Required()]
         [DisplayName("作成日時")]
-        [DisplayFormat(DataFormatString = "{0:yyyy/MM/dd HH:mm:ss}")]
+        [DisplayFormat(DataFormatString = "{0:yyyy/MM/dd HH:mm:ss}", ApplyFormatInEditMode = true)]
         public DateTime InsDate { get; set; }
 
         [Required()]
         [DisplayName("更新日時")]
-        [DisplayFormat(DataFormatString = "{0:yyyy/MM/dd HH:mm:ss}")]
+        [DisplayFormat(DataFormatString = "{0:yyyy/MM/dd HH:mm:ss}", ApplyFormatInEditMode = true)]
         public DateTime UpdDate { get; set; }
 
         [StringLength(100)]
@@ -41,9 +41,9 @@ namespace matidesign.Models
         [Range(0, 1, ErrorMessage = "{0}は{1}～{2}の間で入力してください。")]
         public string YukoFlg { get; set; }
 
-        [StringLength(6)]
-        [DisplayName("自治体コード")]
-        public string JichitaiId { get; set; }
+        //[StringLength(6)]
+        //[DisplayName("自治体コード")]
+        //public string JichitaiId { get; set; }
 
         [Required()]
         [StringLength(400)]
