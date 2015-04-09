@@ -17,7 +17,7 @@ namespace matidesign.Controllers
         // GET: MachiarukiData
         public ActionResult Index()
         {
-            var machiarukiDatas = db.MachiarukiDatas.Include(m => m.Account).Include(m => m.Events);
+            var machiarukiDatas = db.machiarukiData.Include(m => m.Account).Include(m => m.Events);
             return View(machiarukiDatas.ToList());
         }
 
@@ -28,7 +28,7 @@ namespace matidesign.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            MachiarukiData machiarukiData = db.MachiarukiDatas.Find(id);
+            MachiarukiData machiarukiData = db.machiarukiData.Find(id);
             if (machiarukiData == null)
             {
                 return HttpNotFound();
@@ -39,7 +39,7 @@ namespace matidesign.Controllers
         // GET: MachiarukiData/Create
         public ActionResult Create()
         {
-            ViewBag.AccountId = new SelectList(db.Accounts, "AccountId", "InsAccountId");
+            ViewBag.AccountId = new SelectList(db.account, "AccountId", "InsAccountId");
             ViewBag.EventsId = new SelectList(db.events, "EventsId", "InsAccountId");
             return View();
         }
@@ -53,12 +53,12 @@ namespace matidesign.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.MachiarukiDatas.Add(machiarukiData);
+                db.machiarukiData.Add(machiarukiData);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            ViewBag.AccountId = new SelectList(db.Accounts, "AccountId", "InsAccountId", machiarukiData.AccountId);
+            ViewBag.AccountId = new SelectList(db.account, "AccountId", "InsAccountId", machiarukiData.AccountId);
             ViewBag.EventsId = new SelectList(db.events, "EventsId", "InsAccountId", machiarukiData.EventsId);
             return View(machiarukiData);
         }
@@ -70,12 +70,12 @@ namespace matidesign.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            MachiarukiData machiarukiData = db.MachiarukiDatas.Find(id);
+            MachiarukiData machiarukiData = db.machiarukiData.Find(id);
             if (machiarukiData == null)
             {
                 return HttpNotFound();
             }
-            ViewBag.AccountId = new SelectList(db.Accounts, "AccountId", "InsAccountId", machiarukiData.AccountId);
+            ViewBag.AccountId = new SelectList(db.account, "AccountId", "InsAccountId", machiarukiData.AccountId);
             ViewBag.EventsId = new SelectList(db.events, "EventsId", "InsAccountId", machiarukiData.EventsId);
             return View(machiarukiData);
         }
@@ -93,7 +93,7 @@ namespace matidesign.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.AccountId = new SelectList(db.Accounts, "AccountId", "InsAccountId", machiarukiData.AccountId);
+            ViewBag.AccountId = new SelectList(db.account, "AccountId", "InsAccountId", machiarukiData.AccountId);
             ViewBag.EventsId = new SelectList(db.events, "EventsId", "InsAccountId", machiarukiData.EventsId);
             return View(machiarukiData);
         }
@@ -105,7 +105,7 @@ namespace matidesign.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            MachiarukiData machiarukiData = db.MachiarukiDatas.Find(id);
+            MachiarukiData machiarukiData = db.machiarukiData.Find(id);
             if (machiarukiData == null)
             {
                 return HttpNotFound();
@@ -118,8 +118,8 @@ namespace matidesign.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(double id)
         {
-            MachiarukiData machiarukiData = db.MachiarukiDatas.Find(id);
-            db.MachiarukiDatas.Remove(machiarukiData);
+            MachiarukiData machiarukiData = db.machiarukiData.Find(id);
+            db.machiarukiData.Remove(machiarukiData);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

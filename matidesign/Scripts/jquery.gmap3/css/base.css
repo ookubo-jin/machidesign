@@ -1,0 +1,95 @@
+@charset "utf-8";
+
+
+/*---------------------------------------
+	MO_01.CLEARFIX
+---------------------------------------**/
+
+.clearfix:after{
+	content:".";
+	display:block;
+	height:0;
+	clear:both;
+	visibility:hidden;
+}
+
+.clearfix{
+	display:inline-block;
+}
+
+/* \*/
+* html .clearfix{ 
+	height:1%;
+}
+/* */
+
+/*---------------------------------------
+	MO_02.TEXT
+	
+	Font-size Adjustment.
+	
+	77% = 10px	|	122% = 16px	|	167% = 22px	
+	85% = 11px	|	129% = 17px	|	174% = 23px 
+	92% = 12px	|	136% = 18px	|	182% = 24px 
+	100% = 13px	|	144% = 19px	|	189% = 25px 
+	107% = 14px	|	152% = 20px	|	197% = 26px 
+	114% = 15px	|	159% = 21px	| 
+---------------------------------------**/
+
+* {
+	font-size: 100%;
+	font-weight: normal;
+	font-style: normal;
+}
+
+body {
+	line-height: 1.6em;
+	color: #333;
+	background-color: #fff;
+	font-family: "ヒラギノ角ゴ Pro W3","Hiragino Kaku Gothic Pro","メイリオ","Mayryo","ＭＳ Ｐゴシック","MS PGothic",sans-serif;
+	text-align: center;
+}
+
+#container {
+	margin: 0 auto;
+	padding: 0 0 50px 0;
+	width: 960px;
+	text-align: left;
+}
+
+h1 {
+	margin: 10px 0 20px;
+	font-size: 122%;
+	font-weight: bold;
+}
+
+h2 {
+	margin: 0 0 5px;
+	font-size: 107%;
+}
+
+div#gMap {
+	margin-bottom: 40px;
+}
+
+div#gMap02 {
+	margin-bottom: 10px;
+}
+
+#mapController {
+	margin-bottom: 40px;
+}
+
+
+
+
+/*---------------------------------------
+	MO_03.LIST
+---------------------------------------**/
+
+ul,
+ol,
+dl
+{
+	list-style-position:outside;
+}

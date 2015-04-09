@@ -167,6 +167,7 @@
     <Compile Include="Controllers\GroupController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\JichitaiController.cs" />
+    <Compile Include="Controllers\MachiarukiController.cs" />
     <Compile Include="Controllers\MachiarukiDataController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Global.asax.cs">
@@ -265,6 +266,8 @@
     <Content Include="Scripts\jquery-timepicker\jt.timepicker.jquery.json" />
     <Content Include="Scripts\jquery-timepicker\package.json" />
     <Content Include="Scripts\jquery-timepicker\README.md" />
+    <Content Include="Scripts\jquery.gmap3\.DS_Store" />
+    <Content Include="Scripts\jquery.gmap3\README.md" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
     <Content Include="Scripts\jquery-timepicker\.gitignore" />
     <Content Include="Scripts\jquery-timepicker\GruntFile.js" />
@@ -280,6 +283,13 @@
     <Content Include="Scripts\jquery-timepicker\lib\site.js" />
     <Content Include="Scripts\jquery-ui-1.11.3.js" />
     <Content Include="Scripts\jquery-ui-1.11.3.min.js" />
+    <Content Include="Scripts\jquery.gmap3\css\base.css" />
+    <Content Include="Scripts\jquery.gmap3\css\default.css" />
+    <Content Include="Scripts\jquery.gmap3\css\import.css" />
+    <Content Include="Scripts\jquery.gmap3\images\pin02_01.png" />
+    <Content Include="Scripts\jquery.gmap3\images\pin_32.png" />
+    <Content Include="Scripts\jquery.gmap3\index.html" />
+    <Content Include="Scripts\jquery.gmap3\js\jquery.gmap3.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
@@ -342,6 +352,15 @@
     <Content Include="Views\MachiarukiData\Details.cshtml" />
     <Content Include="Views\MachiarukiData\Edit.cshtml" />
     <Content Include="Views\MachiarukiData\Index.cshtml" />
+    <Content Include="Views\Machiaruki\Create.cshtml" />
+    <Content Include="Views\Machiaruki\Delete.cshtml" />
+    <Content Include="Views\Machiaruki\Details.cshtml" />
+    <Content Include="Views\Machiaruki\Edit.cshtml" />
+    <Content Include="Views\Machiaruki\Index.cshtml" />
+    <Content Include="Views\Machiaruki\Aruku.cshtml" />
+    <Content Include="Views\Machiaruki\View.cshtml" />
+    <Content Include="Views\Machiaruki\Aruki.cshtml" />
+    <Content Include="Views\Machiaruki\Arukiold.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

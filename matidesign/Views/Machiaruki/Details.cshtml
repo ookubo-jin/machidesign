@@ -1,0 +1,58 @@
+﻿@model matidesign.Models.Machiaruki
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Machiaruki</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.InsDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.InsDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UpdDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UpdDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.InsAccountId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.InsAccountId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UpdAccountId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UpdAccountId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.YukoFlg)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.YukoFlg)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.EventsId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
