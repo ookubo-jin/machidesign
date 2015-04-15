@@ -5,6 +5,7 @@ using System.Web;
 using System.Data.Entity;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Web.Mvc;
 
 namespace matidesign.Models
@@ -16,7 +17,8 @@ namespace matidesign.Models
     {
         [Key]
         [DisplayName("まち歩き結果ID")]
-        public double MachiarukiDataId { get; set; }
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        public long MachiarukiDataId { get; set; }
 
         //[Key]
         //[DisplayName("イベントID")]

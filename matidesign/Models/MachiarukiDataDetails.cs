@@ -16,7 +16,7 @@ namespace matidesign.Models
     {
         [Key]
         [DisplayName("まち歩き結果項目ID")]
-        public double MachiarukiDataDetailsId { get; set; }
+        public long MachiarukiDataDetailsId { get; set; }
 
         //[Key]
         //[DisplayName("イベントID")]
@@ -63,7 +63,7 @@ namespace matidesign.Models
         public string YukoFlg { get; set; }
 
         [DisplayName("まち歩き結果ID")]
-        public double MachiarukiDataId { get; set; }
+        public long MachiarukiDataId { get; set; }
 
         [DisplayName("まち歩き結果情報")]
         public virtual MachiarukiData MachiarukiData { get; set; }

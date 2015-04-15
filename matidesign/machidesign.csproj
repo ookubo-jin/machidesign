@@ -357,10 +357,10 @@
     <Content Include="Views\Machiaruki\Details.cshtml" />
     <Content Include="Views\Machiaruki\Edit.cshtml" />
     <Content Include="Views\Machiaruki\Index.cshtml" />
-    <Content Include="Views\Machiaruki\Aruku.cshtml" />
+    <Content Include="Views\MachiarukiData\Aruku.cshtml" />
     <Content Include="Views\Machiaruki\View.cshtml" />
-    <Content Include="Views\Machiaruki\Aruki.cshtml" />
-    <Content Include="Views\Machiaruki\Arukiold.cshtml" />
+    <Content Include="Views\MachiarukiData\Aruki.cshtml" />
+    <Content Include="Views\MachiarukiData\Arukiold.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

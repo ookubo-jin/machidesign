@@ -14,7 +14,55 @@ namespace matidesign.Controllers
     {
         private machidesignDBContext db = new machidesignDBContext();
 
-        // GET: MachiarukiData
+
+        // GET: Machiaruki/Aruki
+        public ActionResult Aruki()
+        {
+            return View();
+        }
+
+        // POST: Machiaruki/Aruki
+        [HttpPost]
+        //[ValidateAntiForgeryToken]    
+        [ValidateInput(false)]
+        public ActionResult Aruki(string latitude, string longitude,
+                                string altitude, string accuracy, 
+                                string altitudeAccuracy,
+                                string heading, string speed)
+        {
+
+            MachiarukiData machiarukidata = new MachiarukiData();
+
+            //作成日時セット
+            machiarukidata.InsDate = DateTime.Now;
+            //更新日時セット
+            machiarukidata.UpdDate = DateTime.Now;
+            //有効フラグセット
+            machiarukidata.YukoFlg = "1";
+
+            machiarukidata.AccountId = "code4koriyama";
+            machiarukidata.EventsId = 1;
+            machiarukidata.Latitude = double.Parse(latitude);
+            machiarukidata.Longitude = double.Parse(longitude);
+            machiarukidata.Altitude = double.Parse(altitude);
+            machiarukidata.Accuracy = double.Parse(accuracy);
+            machiarukidata.AltitudeAccuracy = double.Parse(altitudeAccuracy);
+            machiarukidata.Heading = double.Parse(heading);
+            machiarukidata.Speed = double.Parse(speed);
+
+            if (TryValidateModel(machiarukidata))
+            {
+                db.machiarukiData.Add(machiarukidata);
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+
+            return View();
+        }
+ 
+
+
+       // GET: MachiarukiData
         public ActionResult Index()
         {
             var machiarukiDatas = db.machiarukiData.Include(m => m.Account).Include(m => m.Events);

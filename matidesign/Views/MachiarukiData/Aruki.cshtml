@@ -12,22 +12,32 @@
 <div>
     @*緯度：<span id="lat"></span><br />
         経度：<span id="lng"></span><br />*@
-    <button id="btnCurrent">現在位置</button>
+    <p>
+        <button id="btnCurrent">現在位置</button>
+        @Html.ActionLink("一覧", "Index")
+    </p> 
 </div>
 <br />
 <div class="form-group">
     <div class="col-md-offset-2 col-md-10">
         @using (Html.BeginForm(
               "Aruki",
-              "Machiaruki",
+              "MachiarukiData",
               null,
               FormMethod.Post,
               new { enctype = "multipart/form-data" }
               ))
         {
             <div>
-                緯度：<input id="lat" name="lat" type="text" readonly="readonly"/>
-                経度：<input id="lng" name="lng" type="text" readonly="readonly" />
+                <label>緯度：</label><input id="latitude" name="latitude" type="text" readonly="readonly" /><br />
+                <label>経度：</label><input id="longitude" name="longitude" type="text" readonly="readonly" /><br />
+                <div>
+                    <label>高度：</label><input id="altitude" name="altitude" type="text" readonly="readonly"  /><br />
+                    <label>緯度、経度の精度：</label><input id="accuracy" name="accuracy" type="text" readonly="readonly" /><br />
+                    <label>高度の精度：</label><input id="altitudeaccuracy" name="altitudeaccuracy" type="text" readonly="readonly"  /><br />
+                    <label>方角（度）：</label><input id="heading" name="heading" type="text" readonly="readonly"  /><br />
+                    <label>速度（ｍ/S）：</label><input id="speed" name="speed" type="text" readonly="readonly"  /><br />
+                </div>
                 <input type="submit" value="送信" class="btn btn-default" />
             </div>
         }
@@ -71,11 +81,16 @@
                 //Geolocation APIで現在位置を取得
                 navigator.geolocation.getCurrentPosition(function (pos) {
 
-                    var latitude = pos.coords.latitude;
-                    var longitude = pos.coords.longitude;
+                    var latitude = pos.coords.Latitude;
+                    var longitude = pos.coords.Longitude;
 
-                    $("#lat").val(latitude);
-                    $("#lng").val(longitude);
+                    $("#latitude").val(latitude);
+                    $("#longitude").val(longitude);
+                    $("#altitude").val(nz(pos.coords.altitude));
+                    $("#accuracy").val(nz(pos.coords.accuracy));
+                    $("#altitudeaccuracy").val(nz(pos.coords.altitudeAccuracy));
+                    $("#heading").val(nz(pos.coords.heading));
+                    $("#speed").val(nz(pos.coords.speed));
 
                     var lat = latitude;
                     var lng = longitude;
@@ -148,8 +163,13 @@
                     var latitude = pos.coords.latitude;
                     var longitude = pos.coords.longitude;
 
-                    $("#lat").val(latitude);
-                    $("#lng").val(longitude);
+                    $("#latitude").val(latitude);
+                    $("#longitude").val(longitude);
+                    $("#altitude").val(nz(pos.coords.altitude));
+                    $("#accuracy").val(nz(pos.coords.accuracy));
+                    $("#altitudeaccuracy").val(nz(pos.coords.altitudeAccuracy));
+                    $("#heading").val(nz(pos.coords.heading));
+                    $("#speed").val(nz(pos.coords.speed));
 
                     //alert("successCallback:" + latitude + "," + longitude);
 
@@ -179,14 +199,14 @@
 
                         // マーカーをセット
                         markerObj.setMap(mapObj);
-                        $("#lat").val(e.latLng.lat());
-                        $("#lng").val(e.latLng.lng());
+                        $("#latitude").val(e.latLng.lat());
+                        $("#longitude").val(e.latLng.lng());
                     });
 
                     // マーカードラッグ中のイベントを追加
                     google.maps.event.addListener(markerObj, 'drag', function (e) {
-                        $("#lat").val(e.latLng.lat());
-                        $("#lng").val(e.latLng.lng());
+                        $("#latitude").val(e.latLng.lat());
+                        $("#longitude").val(e.latLng.lng());
                     });
 
                 }
@@ -231,6 +251,15 @@
         };
 
 
+        function nz(data) {
+            if (data == null && data == undefined) {
+                return "0";
+            } else {
+                return data;
+            }
+
+        }
+
         //位置情報の取得に失敗した場合
         function errorCallback(error) {
             var message = "";
@@ -261,9 +290,11 @@
             margin-bottom: 15px;
         }
 
-        #lat, #lng {
-            font-size: 24px;
+        #latitude, #longitude, #altitude, #accuracy, #altitudeaccuracy, #heading, #speed {
+            /*font-size: 24px;*/
+            /*margin: 10px 0px;*/
             padding: 0px 15px;
+            position: absolute; left: 140px;
         }
     </style>
 }

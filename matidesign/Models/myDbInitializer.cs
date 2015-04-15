@@ -6,8 +6,8 @@ using System.Data.Entity;
 
 namespace matidesign.Models
 {
+    //public class myDbInitializer: DropCreateDatabaseAlways<machidesignDBContext>  
     public class myDbInitializer: DropCreateDatabaseIfModelChanges<machidesignDBContext>  
-    //public class myDbInitializer: DropCreateDatabaseIfModelChanges<machidesignDBContext>  
   {
     protected override void Seed(machidesignDBContext context)  
     {

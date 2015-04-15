@@ -14,45 +14,6 @@ namespace matidesign.Controllers
     {
         private machidesignDBContext db = new machidesignDBContext();
 
-
-        // GET: Machiaruki/Aruki
-        public ActionResult Aruki()
-        {
-            return View();
-        }
-
-        // POST: Machiaruki/Aruki
-        [HttpPost]
-        //[ValidateAntiForgeryToken]    
-        [ValidateInput(false)]
-        public ActionResult Aruki(string lat, string lng)
-        {
-
-            MachiarukiData machiarukidata = new MachiarukiData();
-
-            //作成日時セット
-            machiarukidata.InsDate = DateTime.Now;
-            //更新日時セット
-            machiarukidata.UpdDate = DateTime.Now;
-            //有効フラグセット
-            machiarukidata.YukoFlg = "1";
-
-            machiarukidata.AccountId = "code4koriyama";
-            machiarukidata.EventsId = 1;
-            machiarukidata.Latitude = double.Parse(lat);
-            machiarukidata.Longitude = double.Parse(lng);
-
-            if (TryValidateModel(machiarukidata))
-            {
-                db.machiarukiData.Add(machiarukidata);
-                db.SaveChanges();
-                return RedirectToAction("Index");
-            }
-
-            return View();
-        }
-
-
         // GET: Machiaruki
         public ActionResult Index()
         {

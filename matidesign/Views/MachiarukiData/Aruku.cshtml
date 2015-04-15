@@ -1,0 +1,106 @@
+﻿@{
+    ViewBag.Title = "Aruku";
+}
+
+<h2>まち歩き</h2>
+@*@using (Html.BeginForm())
+{*@
+    @Html.AntiForgeryToken()
+
+    <div id="gmap3_1" style="width:640px;height:480px"></div>
+
+    <div>
+        緯度：<input type="text" id="lat" /> 経度：<input type="text" id="lng" />
+        <button id="button1">移動</button>
+    </div>
+    <div>
+        地名：<input type="text" id="addr">
+        <button id="button2" >移動</button>
+    </div>
+@*}*@
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+
+    <!-- Google Maps APIの読込 ... （1） -->
+    <script type="text/javascript" src="https://maps.google.com/maps/api/js?sensor=false"></script>
+    <!-- jQueryの読込 -->
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <!-- gmap3の読込 ... （2） -->
+    <script type="text/javascript" src="~/Scripts/jquery.gmap3/js/jquery.gmap3.js"></script>
+
+    <script>
+        $(function () {
+            //Geolocation APIが使用できるかチェック
+            if (navigator.geolocation) {
+                //Geolocation APIで現在位置を取得
+                navigator.geolocation.getCurrentPosition(successCallback,errorCallback);
+            }else{
+                alert('ブラウザがGeolocation APIに対応していません。');
+            }
+
+            //位置情報の取得に成功した場合
+            function successCallback(pos) {
+                //現在位置取得
+                var current = [pos.coords.latitude, pos.coords.longitude];
+                alert(current);
+                $("#lat").val(pos.coords.latitude);
+                $("#lng").val(pos.coords.longitude);
+                $("#gmap3_1").gmap3({
+                    latitude: pos.coords.latitude,
+                    longitude: pos.coords.longitude,
+                    //center: current,
+                    //address: "東京",
+                    zoom: 18,
+                    navigationControl: true,
+                    mapTypeControl: true,
+                    scaleControl: true,
+                    markers: [
+                        {
+                            latitude: pos.coords.latitude,
+                            longitude: pos.coords.longitude
+                            //title: "現在位置",
+                            //content: "<div><h4>現在位置</h4><p>吹き出し</p></div>"
+                        }
+                    ]
+                });
+            }
+
+            //位置情報の取得に失敗した場合
+            function errorCallback(error) {
+                var message = "";
+
+                switch (error.code) {
+
+                    // 位置情報が取得できない場合
+                    case error.POSITION_UNAVAILABLE:
+                        message = "位置情報の取得ができませんでした。";
+                        break;
+
+                        // Geolocationの使用が許可されない場合
+                    case error.PERMISSION_DENIED:
+                        message = "位置情報取得の使用許可がされませんでした。";
+                        break;
+
+                        // タイムアウトした場合
+                    case error.PERMISSION_DENIED_TIMEOUT:
+                        message = "位置情報取得中にタイムアウトしました。";
+                        break;
+                }
+                window.alert(message);
+            }
+
+            // 緯度・経度による移動
+            $("#button1").click(function () {
+                $.gmap3.panTo($("#gmap3_1"), { latitude: $("#lat").val(), longitude: $("#lng").val() });
+            });
+
+            // 地名による移動
+            $("#button2").click(function () {
+                $.gmap3.panTo($("#gmap3_1"), { address: $("#addr").val() });
+            });
+        });
+
+
+    </script>
+}
