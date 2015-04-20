@@ -11,12 +11,24 @@
 </p>
 <table class="table">
     <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.MachiarukiDataId)
+        </th>
+        @*<th>
+            @Html.DisplayNameFor(model => model.Account.InsAccountId)
+        </th>
+        @*<th>
+            @Html.DisplayNameFor(model => model.Account.InsAccountId)
+        </th>
+        @*<th>
+            @Html.DisplayNameFor(model => model.Account.InsAccountId)
+        </th>
         @*<th>
             @Html.DisplayNameFor(model => model.Account.InsAccountId)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Events.InsAccountId)
-        </th>*@
+        </th>
         <th>
             @Html.DisplayNameFor(model => model.InsDate)
         </th>
@@ -58,6 +70,9 @@
 
 @foreach (var item in Model) {
     <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.MachiarukiDataId)
+        </td>
         @*<td>
             @Html.DisplayFor(modelItem => item.Account.InsAccountId)
         </td>
