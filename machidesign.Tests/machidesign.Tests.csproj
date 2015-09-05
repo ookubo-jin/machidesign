@@ -92,7 +92,7 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\matidesign\machidesign.csproj">
+    <ProjectReference Include="..\machidesign\machidesign.csproj">
       <Project>{02FFA028-ADD4-41D8-A5A2-005A07767A29}</Project>
       <Name>machidesign</Name>
     </ProjectReference>
