@@ -1,0 +1,67 @@
+﻿@model IEnumerable<matidesign.Models.Events>
+
+@{
+    ViewBag.Title = "SearchEventView";
+}
+
+<h2>イベント検索</h2>
+
+@using (Html.BeginForm("SearchEventView", "SearchEvent", new { keyword = "EventName", YukoFlg = "1" }, FormMethod.Get,
+
+        new { @class = "form-inline" }))
+{
+
+    @Html.Label("EventName", " イベント：", new { @class = "control-label" })
+    @Html.TextBox("EventName", null, new { @class = "form-control" })
+    @Html.Label("KaisaiDate_Start", "  開催日　：", new { @class = "control-label" })
+    @Html.TextBox("KaisaiDate_Start", null, new { @class = "form-control" })
+    <br>
+    @Html.Label("Kaijo", " 会　場　：", new { @class = "control-label" })
+    @Html.TextBox("Kaijo", null, new { @class = "form-control" })
+    @Html.Label("Kaihi", "  会　費　：", new { @class = "control-label" })
+    @Html.TextBox("Kaihi", null, new { @class = "form-control" })
+    @Html.Encode(ViewData["EventName"])
+    @Html.Label("YukoFlg", "　実施済：", new { @class = "control-label" })
+
+    @Html.CheckBox("YukoFlg")
+
+    <input type="submit" value=" 検索 " class="btn btn-info" />
+}
+
+<hr />
+
+<table class="table">
+
+    <tr>
+
+        <th>@Html.DisplayNameFor(model => model.EventName)</th>
+        <th>@Html.DisplayNameFor(model => model.EventDescription)</th>
+        <th>@Html.DisplayNameFor(model => model.EventDetails)</th>
+        <th>@Html.DisplayNameFor(model => model.Kaijo)</th>
+        <th>@Html.DisplayNameFor(model => model.KaisaiDate_Start)</th>
+        <th>@Html.DisplayNameFor(model => model.KaisaiDate_End)</th>
+        <th>@Html.DisplayNameFor(model => model.Kaihi)</th>
+
+    </tr>
+
+    <!-- 検索結果をテーブルに整形 -->
+    @foreach (var item in Model)
+    {
+
+        <tr>
+
+            <td>@Html.DisplayFor(modelItem => item.EventName)</td>
+            <td>@Html.DisplayFor(modelItem => item.EventDescription)</td>
+            <td>@Html.DisplayFor(modelItem => item.EventDetails)</td>
+            <td>@Html.DisplayFor(modelItem => item.Kaijo)</td>
+            <td>@Html.DisplayFor(modelItem => item.KaisaiDate_Start)</td>
+            <td>@Html.DisplayFor(modelItem => item.KaisaiDate_End)</td>
+            <td>@Html.DisplayFor(modelItem => item.Kaihi)</td>
+
+
+
+        </tr>
+
+    }
+
+</table>

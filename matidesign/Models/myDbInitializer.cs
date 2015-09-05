@@ -58,8 +58,8 @@ namespace matidesign.Models
                         //有効フラグセット
                         YukoFlg = "1",
                         JichitaiId = "123456",
-                        GroupName = "team FIC-1",
-                        GroupDescription = "team FIC-1"
+                        GroupName = "チーム「よし房」",
+                        GroupDescription = "チーム「よし房」"
                         },
         new Group {GroupId=2, 
                         //作成日時セット
