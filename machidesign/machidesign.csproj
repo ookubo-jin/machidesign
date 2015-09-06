@@ -193,9 +193,9 @@
     <Compile Include="Models\Machiaruki.cs" />
     <Compile Include="Models\MachiarukiDataDetails.cs" />
     <Compile Include="Models\MachiarukiData.cs" />
-    <Compile Include="Models\machidesignDBContext.cs" />
+    <Compile Include="machidesignDBContext.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
-    <Compile Include="Models\myDbInitializer.cs" />
+    <Compile Include="myDbInitializer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
